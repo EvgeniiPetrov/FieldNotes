@@ -5,6 +5,11 @@ const subTitle = ref("Журнал технических замечаний")
 const noteTitle = ref("")
 const noteDescription = ref("")
 
+function clearInput() {
+  noteDescription.value = ""
+  noteTitle.value = ""
+}
+
 </script>
 
 
@@ -20,8 +25,8 @@ const noteDescription = ref("")
       <label for="idNoteDescription">Описание замечания: </label>
       <textarea id="idNoteDescription" v-model="noteDescription" placeholder="Введите полное описание замечания"></textarea>
       <div >
-        <button class="buttons"type="button">Добавить</button>
-        <button class="buttons" type="button">Отменить</button>
+        <button class="buttons" type="button">Добавить</button>
+        <button @click="clearInput()" class="buttons" type="button">Отменить</button>
       </div>
     </form>
   </div>
