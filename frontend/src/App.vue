@@ -30,7 +30,7 @@ const noteDescription = ref("")
           <p>Наименование замечания:</p>
         </td>
         <td>
-          <input minlength="30%" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
+          <input minlength="35" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
         </td>
       </tr>
       <tr>
