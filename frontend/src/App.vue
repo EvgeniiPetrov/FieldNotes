@@ -39,4 +39,8 @@ const noteDescription = ref("")
     gap: 12px;
   }
 
+  input, textarea{
+    width: 200px;
+  }
+
 </style>
