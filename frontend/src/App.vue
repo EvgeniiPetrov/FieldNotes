@@ -13,20 +13,20 @@ const noteDescription = ref("")
     <h1>{{ appTitle }}</h1>
     <h2>{{ subTitle }}</h2>
   </div>
-  <div>
-    <form>
-      <label>Наименование замечания:</label>
-      <input minlength="35" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
-    </form>
-    <form>
-      <label>Описание замечания: </label>
-      <textarea v-model="noteDescription" placeholder="Введите полное описание замечания"></textarea>
-    </form>
-    <form>
-      <button>Добавить</button>
-      <button>Отменить</button>
-    </form>
-  </div>
+  <form>
+    <div>
+      <label id="idNoteTitle">Наименование замечания:</label>
+      <input id="idNoteTitle" width="35" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
+    </div>
+    <div>
+      <label id="idNoteDescription">Описание замечания: </label>
+      <textarea id="idNoteDescription" v-model="noteDescription" placeholder="Введите полное описание замечания"></textarea>
+    </div>
+    <div>
+      <button type="submit">Добавить</button>
+      <button type="reset">Отменить</button>
+    </div>
+  </form>
 </template>
 
 <style scoped></style>
