@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref }  from 'vue'
-const headerLine = ref("FieldNotes:")
-const subHeaderLine = ref("Журнал технических замечаний")
-const bugTitle = ref("")
-const bugDescription = ref("")
+const appTitle = ref("FieldNotes:")
+const subTitle = ref("Журнал технических замечаний")
+const noteTitle = ref("")
+const noteDescription = ref("")
 
 </script>
 
@@ -14,10 +14,10 @@ const bugDescription = ref("")
     <tbody>
     <tr>
       <td>
-        <h1>{{headerLine}}</h1>
+        <h1>{{ appTitle }}</h1>
       </td>
       <td>
-        <h2>{{subHeaderLine}}</h2>
+        <h2>{{ subTitle }}</h2>
       </td>
     </tr>
     <tr>
@@ -25,7 +25,7 @@ const bugDescription = ref("")
         <p>Наименование замечания:</p>
       </td>
       <td>
-        <input minlength="30%" v-model="bugTitle" type="text" placeholder="Добавьте наименование замечания">
+        <input minlength="30%" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
       </td>
     </tr>
     <tr>
@@ -33,7 +33,7 @@ const bugDescription = ref("")
         <p>Описание замечания: </p>
       </td>
       <td>
-        <textarea v-model="bugDescription" placeholder="Введите полное описание замечания"></textarea>
+        <textarea v-model="noteDescription" placeholder="Введите полное описание замечания"></textarea>
       </td>
     </tr>
     <tr>
