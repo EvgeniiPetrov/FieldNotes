@@ -9,36 +9,40 @@ const bugDescription = ref("")
 
 
 <template>
-  <tr>
-    <td>
-      <h1>{{headerLine}}</h1>
-    </td>
-    <td>
-      <h2>{{subHeaderLine}}</h2>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p>Наименование замечания:</p>
-    </td>
-    <td>
-      <input v-model="bugTitle" type="text" placeholder="Добавьте наименование замечания">
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p>Описание замечания: </p>
-    </td>
-    <td>
-      <textarea v-model="bugDescription" placeholder="Введите полное описание замечания"></textarea>
-    </td>
-  </tr>
-  <tr>
-    <td><button>Сохранить</button></td>
-    <td><button>Отменить</button></td>
-  </tr>
+  <div>
+    <th></th>
+    <tbody>
+    <tr>
+      <td>
+        <h1>{{headerLine}}</h1>
+      </td>
+      <td>
+        <h2>{{subHeaderLine}}</h2>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Наименование замечания:</p>
+      </td>
+      <td>
+        <input minlength="30%" v-model="bugTitle" type="text" placeholder="Добавьте наименование замечания">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Описание замечания: </p>
+      </td>
+      <td>
+        <textarea v-model="bugDescription" placeholder="Введите полное описание замечания"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td><button>Добавить</button></td>
+      <td><button>Отменить</button></td>
+    </tr>
+    </tbody>
 
-
+  </div>
 </template>
 
 <style scoped></style>
