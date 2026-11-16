@@ -15,11 +15,11 @@ const noteDescription = ref("")
   </div>
   <form>
     <div>
-      <label id="idNoteTitle">Наименование замечания:</label>
+      <label for="idNoteTitle">Наименование замечания:</label>
       <input id="idNoteTitle" width="35" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
     </div>
     <div>
-      <label id="idNoteDescription">Описание замечания: </label>
+      <label for="idNoteDescription">Описание замечания: </label>
       <textarea id="idNoteDescription" v-model="noteDescription" placeholder="Введите полное описание замечания"></textarea>
     </div>
     <div>
