@@ -10,45 +10,22 @@ const noteDescription = ref("")
 
 <template>
   <div>
-    <table>
-      <thead>
-      <tr>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>
-          <h1>{{ appTitle }}</h1>
-        </td>
-        <td>
-          <h2>{{ subTitle }}</h2>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>Наименование замечания:</p>
-        </td>
-        <td>
-          <input minlength="35" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>Описание замечания: </p>
-        </td>
-        <td>
-          <textarea v-model="noteDescription" placeholder="Введите полное описание замечания"></textarea>
-        </td>
-      </tr>
-      <tr>
-        <td><button>Добавить</button></td>
-        <td><button>Отменить</button></td>
-      </tr>
-      </tbody>
-    </table>
-
-
+    <h1>{{ appTitle }}</h1>
+    <h2>{{ subTitle }}</h2>
+  </div>
+  <div>
+    <form>
+      <label>Наименование замечания:</label>
+      <input minlength="35" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
+    </form>
+    <form>
+      <label>Описание замечания: </label>
+      <textarea v-model="noteDescription" placeholder="Введите полное описание замечания"></textarea>
+    </form>
+    <form>
+      <button>Добавить</button>
+      <button>Отменить</button>
+    </form>
   </div>
 </template>
 
