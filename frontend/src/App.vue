@@ -4,31 +4,51 @@ const appTitle = ref("FieldNotes:")
 const subTitle = ref("Журнал технических замечаний")
 const noteTitle = ref("")
 const noteDescription = ref("")
+const noteTitles = ref<string[]>([])
 
 function clearInput() {
   noteDescription.value = ""
   noteTitle.value = ""
 }
 
+function addValueToNoteTitles(value: string) {
+  noteTitles.value.push(value)
+  clearNoteTitle()
+}
+
+function clearNoteTitle() {
+  noteTitle.value = ""
+}
+
+
 </script>
 
 
 <template>
   <div>
-    <div>
+    <div class="formButtons">
       <h1>{{ appTitle }}</h1>
       <h2>{{ subTitle }}</h2>
     </div>
     <form class="mainForm">
-      <label for="idNoteTitle">Наименование замечания:</label>
-      <input id="idNoteTitle" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
-      <label for="idNoteDescription">Описание замечания: </label>
+        <label for="idNoteTitle">Наименование замечания:</label>
+        <input id="idNoteTitle" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
+        <label for="idNoteDescription">Описание замечания: </label>
       <textarea id="idNoteDescription" v-model="noteDescription" placeholder="Введите полное описание замечания"></textarea>
       <div >
-        <button class="buttons" type="button">Добавить</button>
+        <button @click="addValueToNoteTitles(noteTitle)" class="buttons" type="button">Добавить</button>
         <button @click="clearInput()" class="buttons" type="button">Отменить</button>
       </div>
     </form>
+  </div>
+
+  <br>
+  <div>
+    <ul v-for="value in noteTitles" :key="value">
+      <li>
+        {{value}}
+      </li>
+    </ul>
   </div>
 
 </template>
@@ -37,6 +57,13 @@ function clearInput() {
   .mainForm{
     display: flex;
     flex-direction: column;
+    gap: 12px;
+  }
+
+  .formButtons{
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
     gap: 12px;
   }
 
