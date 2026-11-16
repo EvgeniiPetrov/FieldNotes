@@ -26,11 +26,11 @@ function clearNoteTitle() {
 
 <template>
   <div>
-    <div class="formButtons">
+    <div class="headerRow">
       <h1>{{ appTitle }}</h1>
       <h2>{{ subTitle }}</h2>
     </div>
-    <form class="mainForm">
+    <form class="mainForm" @submit.prevent>
         <label for="idNoteTitle">Наименование замечания:</label>
         <input id="idNoteTitle" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
         <label for="idNoteDescription">Описание замечания: </label>
@@ -44,8 +44,8 @@ function clearNoteTitle() {
 
   <br>
   <div>
-    <ul v-for="value in noteTitles" :key="value">
-      <li>
+    <ul>
+      <li  v-for="(value, index) in noteTitles" :key="index">
         {{value}}
       </li>
     </ul>
@@ -60,7 +60,7 @@ function clearNoteTitle() {
     gap: 12px;
   }
 
-  .formButtons{
+  .headerRow{
     display: flex;
     align-items: baseline;
     flex-direction: row;
