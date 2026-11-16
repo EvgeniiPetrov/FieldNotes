@@ -15,17 +15,13 @@ const noteDescription = ref("")
       <h2>{{ subTitle }}</h2>
     </div>
     <form class="mainForm">
-      <div>
-        <label for="idNoteTitle">Наименование замечания:</label>
-        <input id="idNoteTitle" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
-      </div>
-      <div>
-        <label for="idNoteDescription">Описание замечания: </label>
-        <textarea id="idNoteDescription" v-model="noteDescription" placeholder="Введите полное описание замечания"></textarea>
-      </div>
-      <div>
-        <button type="button">Добавить</button>
-        <button type="button">Отменить</button>
+      <label for="idNoteTitle">Наименование замечания:</label>
+      <input id="idNoteTitle" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
+      <label for="idNoteDescription">Описание замечания: </label>
+      <textarea id="idNoteDescription" v-model="noteDescription" placeholder="Введите полное описание замечания"></textarea>
+      <div >
+        <button class="buttons"type="button">Добавить</button>
+        <button class="buttons" type="button">Отменить</button>
       </div>
     </form>
   </div>
@@ -37,6 +33,10 @@ const noteDescription = ref("")
     display: flex;
     flex-direction: column;
     gap: 12px;
+  }
+
+  .buttons{
+    margin: 10px;
   }
 
   input, textarea{
