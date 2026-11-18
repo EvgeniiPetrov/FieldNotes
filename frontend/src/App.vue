@@ -43,10 +43,10 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     <form class="mainForm" @submit.prevent>
         <label for="idNoteTitle">Наименование замечания:</label>
         <input id="idNoteTitle" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
-        <p v-if="!isTitleValid">Длинна наименования замечания должна быть более 1 символа (не пробел).</p>
+        <p v-if="!isTitleValid">Длина наименования замечания должна быть более 1 символа (не пробел).</p>
         <label for="idNoteDescription">Описание замечания: </label>
         <textarea id="idNoteDescription" v-model="noteDescription" placeholder="Введите полное описание замечания"></textarea>
-        <p v-if="!isDescriptionValid">Длинна описания замечания должна быть более 1 символа (не пробел). </p>
+        <p v-if="!isDescriptionValid">Длина описания замечания должна быть более 1 символа (не пробел). </p>
       <div >
         <button @click="addValueToNotes(noteTitle, noteDescription)" class="buttons" type="button">Добавить</button>
         <button @click="clearInput()" class="buttons" type="button">Отменить</button>
