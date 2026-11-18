@@ -12,8 +12,10 @@ const noteTitle = ref("")
 const noteDescription = ref("")
 // const savingNote: Note ={id: "-1", noteTitle: "", noteDescription: ""}
 const notes = ref<Note[]>([])
-const isTitleValid: ComputedRef<boolean> = computed(()=> noteTitle.value.trim().length > 0)
-const isDescriptionValid: ComputedRef<boolean> = computed(() => noteDescription.value.trim().length > 0)
+const isTitleValid: ComputedRef<boolean> =
+  computed(()=> noteTitle.value.trim().length > 0)
+const isDescriptionValid: ComputedRef<boolean> =
+  computed(() => noteDescription.value.trim().length > 0)
 
 function clearInput() {
   noteTitle.value = ""
@@ -43,10 +45,10 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     <form class="mainForm" @submit.prevent>
         <label for="idNoteTitle">Наименование замечания:</label>
         <input id="idNoteTitle" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
-        <p v-if="!isTitleValid">Длина наименования замечания должна быть более 1 символа (не пробел).</p>
+        <p v-if="!isTitleValid">Название замечания не должно быть пустым или состоять только из пробелов.</p>
         <label for="idNoteDescription">Описание замечания: </label>
         <textarea id="idNoteDescription" v-model="noteDescription" placeholder="Введите полное описание замечания"></textarea>
-        <p v-if="!isDescriptionValid">Длина описания замечания должна быть более 1 символа (не пробел). </p>
+        <p v-if="!isDescriptionValid">Описание не должно быть пустым или состоять только из пробелов. </p>
       <div >
         <button @click="addValueToNotes(noteTitle, noteDescription)" class="buttons" type="button">Добавить</button>
         <button @click="clearInput()" class="buttons" type="button">Отменить</button>
