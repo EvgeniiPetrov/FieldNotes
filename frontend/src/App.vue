@@ -1,26 +1,34 @@
 <script setup lang="ts">
 import { ref }  from 'vue'
+
+type Note = {
+  id: string,
+  noteTitle: string,
+  noteDescription: string,
+}
 const appTitle = ref("FieldNotes:")
 const subTitle = ref("Журнал технических замечаний")
 const noteTitle = ref("")
 const noteDescription = ref("")
-const noteTitles = ref<string[]>([])
+const savingNote: Note ={id: "-1", noteTitle: "", noteDescription: ""}
+const notes = ref<Note[]>([])
 
 function clearInput() {
+  noteTitle.value = ""
   noteDescription.value = ""
-  noteTitle.value = ""
 }
 
-function addValueToNoteTitles(value: string) {
-  noteTitles.value.push(value)
-  clearNoteTitle()
+function addValueToNotes(noteTitle: string, noteDescription: string) {
+
+  const id: string = crypto.randomUUID()
+  const note: Note = {
+    id: id,
+    noteTitle: noteTitle,
+    noteDescription: noteDescription
+  }
+  notes.value.push(note)
+  clearInput()
 }
-
-function clearNoteTitle() {
-  noteTitle.value = ""
-}
-
-
 </script>
 
 
@@ -35,8 +43,9 @@ function clearNoteTitle() {
         <input id="idNoteTitle" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
         <label for="idNoteDescription">Описание замечания: </label>
       <textarea id="idNoteDescription" v-model="noteDescription" placeholder="Введите полное описание замечания"></textarea>
+
       <div >
-        <button @click="addValueToNoteTitles(noteTitle)" class="buttons" type="button">Добавить</button>
+        <button @click="addValueToNotes(noteTitle, noteDescription)" class="buttons" type="button">Добавить</button>
         <button @click="clearInput()" class="buttons" type="button">Отменить</button>
       </div>
     </form>
@@ -45,7 +54,7 @@ function clearNoteTitle() {
   <br>
   <div>
     <ul>
-      <li  v-for="(value, index) in noteTitles" :key="index">
+      <li  v-for="(value, index) in notes" :key="index">
         {{value}}
       </li>
     </ul>
