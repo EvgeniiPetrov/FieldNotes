@@ -57,8 +57,8 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
       <table>
         <thead>
           <tr>
-            <td>Title</td>
-            <td>Description</td>
+            <th>Title</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
