@@ -10,7 +10,7 @@ const appTitle = ref("FieldNotes:")
 const subTitle = ref("Журнал технических замечаний")
 const noteTitle = ref("")
 const noteDescription = ref("")
-const savingNote: Note ={id: "-1", noteTitle: "", noteDescription: ""}
+// const savingNote: Note ={id: "-1", noteTitle: "", noteDescription: ""}
 const notes = ref<Note[]>([])
 
 function clearInput() {
@@ -53,11 +53,22 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
 
   <br>
   <div>
-    <ul>
-      <li  v-for="(value, index) in notes" :key="index">
-        {{value}}
-      </li>
-    </ul>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <td>Title</td>
+            <td>Description</td>
+          </tr>
+        </thead>
+        <tbody>
+        <tr v-for="value in notes" :key="value.id">
+          <td>{{value.noteTitle}}</td>
+          <td>{{value.noteDescription}}</td>
+      </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
 </template>
