@@ -23,15 +23,17 @@ function clearInput() {
 }
 
 function addValueToNotes(noteTitle: string, noteDescription: string) {
-
-  const id: string = crypto.randomUUID()
-  const note: Note = {
-    id: id,
-    noteTitle: noteTitle,
-    noteDescription: noteDescription
+  if (isDescriptionValid.value || isTitleValid.value) {
+    const id: string = crypto.randomUUID()
+    const note: Note = {
+      id: id,
+      noteTitle: noteTitle,
+      noteDescription: noteDescription
+    }
+    notes.value.push(note)
+    clearInput()
   }
-  notes.value.push(note)
-  clearInput()
+  return
 }
 </script>
 
