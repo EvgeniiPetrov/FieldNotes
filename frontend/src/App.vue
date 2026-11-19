@@ -19,8 +19,6 @@ const isDescriptionValid: ComputedRef<boolean> =
 
 function removeNote(id: string){
   notes.value = notes.value.filter(note => note.id !== id)
-// КАК ПЕРЕПРИСВОИТЬ РЕЗУЛЬТАТ?????
-//   notes.value?
 }
 
 function clearInput() {
