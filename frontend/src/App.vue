@@ -17,6 +17,12 @@ const isTitleValid: ComputedRef<boolean> =
 const isDescriptionValid: ComputedRef<boolean> =
   computed(() => noteDescription.value.trim().length > 0)
 
+function removeNote(id: string){
+  notes.value = notes.value.filter(note => note.id !== id)
+// КАК ПЕРЕПРИСВОИТЬ РЕЗУЛЬТАТ?????
+//   notes.value?
+}
+
 function clearInput() {
   noteTitle.value = ""
   noteDescription.value = ""
@@ -72,6 +78,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
         <tr v-for="value in notes" :key="value.id">
           <td>{{value.noteTitle}}</td>
           <td>{{value.noteDescription}}</td>
+          <td><button @click = "removeNote(value.id)">Удалить замечание</button></td>
       </tr>
         </tbody>
       </table>
