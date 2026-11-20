@@ -114,7 +114,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   .mainForm{
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 3px;
   }
 
   .headerRow{
