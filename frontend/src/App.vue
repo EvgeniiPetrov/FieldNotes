@@ -44,9 +44,6 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
 }
 </script>
 
-function
-
-
 <template>
   <div>
     <div class="headerRow">
@@ -60,22 +57,28 @@ function
           v-model="noteTitle" type="text"
           @input = "isNoteTitleTouched = true"
           placeholder="Добавьте наименование замечания">
+      <div class="validation-slot">
         <p v-if="!isTitleValid
         && isNoteTitleTouched">
           Название замечания не должно быть пустым или состоять только из пробелов.</p>
-
+      </div>
       <label for="idNoteDescription">Описание замечания: </label>
         <textarea
           id="idNoteDescription"
           v-model="noteDescription"
           @input="isNoteDescriptionTouched=true"
           placeholder="Введите полное описание замечания"></textarea>
-        <p
-          v-if="!isDescriptionValid
+        <div class="validation-slot">
+          <p
+            v-if="!isDescriptionValid
           && isNoteDescriptionTouched">
-          Описание не должно быть пустым или состоять только из пробелов. </p>
+            Описание не должно быть пустым или состоять только из пробелов. </p>
+        </div>
       <div >
-        <button @click="addValueToNotes(noteTitle, noteDescription)" class="buttons" type="button">Добавить</button>
+        <button
+          @click="addValueToNotes(noteTitle, noteDescription)"
+          class="buttons" type="button">
+          Добавить</button>
         <button @click="clearInput()" class="buttons" type="button">Отменить</button>
       </div>
     </form>
@@ -87,9 +90,9 @@ function
       <table>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th> </th>
+            <th>Заголовок</th>
+            <th>Полное описание</th>
+            <th>Действие</th>
           </tr>
         </thead>
         <tbody>
@@ -125,6 +128,15 @@ function
 
   input, textarea{
     width: 200px;
+  }
+
+  .validation-slot{
+    min-height: 1em;
+  }
+  .validation-slot p{
+    margin: 0;
+    margin-block-end: 0;
+    font-size: smaller;
   }
 
 </style>
