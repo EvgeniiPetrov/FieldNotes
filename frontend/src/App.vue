@@ -77,7 +77,9 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
       <div >
         <button
           @click="addValueToNotes(noteTitle, noteDescription)"
-          class="buttons" type="button">
+          class="buttons"
+          type="button"
+        :disabled = "!isTitleValid || !isDescriptionValid">
           Добавить</button>
         <button @click="clearInput()" class="buttons" type="button">Отменить</button>
       </div>
