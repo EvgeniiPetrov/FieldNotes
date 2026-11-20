@@ -10,12 +10,13 @@ const appTitle = ref("FieldNotes:")
 const subTitle = ref("Журнал технических замечаний")
 const noteTitle = ref("")
 const noteDescription = ref("")
-// const savingNote: Note ={id: "-1", noteTitle: "", noteDescription: ""}
 const notes = ref<Note[]>([])
 const isTitleValid: ComputedRef<boolean> =
   computed(()=> noteTitle.value.trim().length > 0)
 const isDescriptionValid: ComputedRef<boolean> =
   computed(() => noteDescription.value.trim().length > 0)
+const isNoteTitleTouched = ref(false)
+const isNoteDescriptionTouched = ref(false)
 
 function removeNote(id: string){
   notes.value = notes.value.filter(note => note.id !== id)
@@ -24,6 +25,8 @@ function removeNote(id: string){
 function clearInput() {
   noteTitle.value = ""
   noteDescription.value = ""
+  isNoteTitleTouched.value = false
+  isNoteDescriptionTouched.value = false
 }
 
 function addValueToNotes(noteTitle: string, noteDescription: string) {
@@ -41,6 +44,8 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
 }
 </script>
 
+function
+
 
 <template>
   <div>
@@ -50,11 +55,25 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     </div>
     <form class="mainForm" @submit.prevent>
         <label for="idNoteTitle">Наименование замечания:</label>
-        <input id="idNoteTitle" v-model="noteTitle" type="text" placeholder="Добавьте наименование замечания">
-        <p v-if="!isTitleValid">Название замечания не должно быть пустым или состоять только из пробелов.</p>
-        <label for="idNoteDescription">Описание замечания: </label>
-        <textarea id="idNoteDescription" v-model="noteDescription" placeholder="Введите полное описание замечания"></textarea>
-        <p v-if="!isDescriptionValid">Описание не должно быть пустым или состоять только из пробелов. </p>
+        <input
+          id="idNoteTitle"
+          v-model="noteTitle" type="text"
+          @input = "isNoteTitleTouched = true"
+          placeholder="Добавьте наименование замечания">
+        <p v-if="!isTitleValid
+        && isNoteTitleTouched">
+          Название замечания не должно быть пустым или состоять только из пробелов.</p>
+
+      <label for="idNoteDescription">Описание замечания: </label>
+        <textarea
+          id="idNoteDescription"
+          v-model="noteDescription"
+          @input="isNoteDescriptionTouched=true"
+          placeholder="Введите полное описание замечания"></textarea>
+        <p
+          v-if="!isDescriptionValid
+          && isNoteDescriptionTouched">
+          Описание не должно быть пустым или состоять только из пробелов. </p>
       <div >
         <button @click="addValueToNotes(noteTitle, noteDescription)" class="buttons" type="button">Добавить</button>
         <button @click="clearInput()" class="buttons" type="button">Отменить</button>
