@@ -45,7 +45,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
 </script>
 
 <template>
-  <div>
+  <div class="mainWindow">
     <div class="headerRow">
       <div>
         <h1 class="header-h1-style">{{ appTitle }}</h1>
@@ -54,6 +54,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
         <h2 class="header-h2-style">{{ subTitle }}</h2>
       </div>
     </div>
+    <hr>
     <form class="mainForm" @submit.prevent>
         <label for="idNoteTitle" class="input-labels">Наименование замечания:</label>
         <input
@@ -116,6 +117,17 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
 </template>
 
 <style scoped>
+  .mainWindow{
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    font-family: SansSerif,serif;
+    background-color: aliceblue;
+    border-radius: 10px;
+    justify-content: center;
+    padding: 20px;
+  }
+
   .mainForm{
     display: flex;
     flex-direction: column;
@@ -133,10 +145,13 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
 
   input{
     box-sizing: border-box;
+    border-radius: 5px;
   }
   textarea{
     box-sizing: border-box;
     resize: vertical;
+    min-height: 200px;
+    border-radius: 5px;
   }
   .validation-slot{
     min-height: 2em;
