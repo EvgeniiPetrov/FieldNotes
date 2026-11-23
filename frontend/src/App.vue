@@ -71,6 +71,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
           id="idNoteDescription"
           v-model="noteDescription"
           @input="isNoteDescriptionTouched=true"
+
           placeholder="Введите полное описание замечания"></textarea>
         <div class="validation-slot">
           <p
@@ -130,10 +131,13 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     margin-inline: 0px;
   }
 
-  input, textarea{
+  input{
     box-sizing: border-box;
   }
-
+  textarea{
+    box-sizing: border-box;
+    resize: vertical;
+  }
   .validation-slot{
     min-height: 2em;
   }
