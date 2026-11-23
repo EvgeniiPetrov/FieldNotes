@@ -104,12 +104,10 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
         </thead>
         <tbody>
         <tr v-for="value in notes" :key="value.id">
-          <td>{{value.noteTitle}}</td>
-          <td>{{value.noteDescription}}</td>
-          <td>
-            <button
-              @click = "removeNote(value.id)"
-              class="deleteButtonInTable">Удалить замечание</button></td>
+          <td class="align-left">{{value.noteTitle}}</td>
+          <td class="align-left">{{value.noteDescription}}</td>
+          <td class="align-right">
+            <button @click = "removeNote(value.id)">Удалить замечание</button></td>
       </tr>
         </tbody>
       </table>
@@ -168,9 +166,15 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     border-bottom: solid black;
   }
 
-  td {
+  td.align-left {
     padding: 10px;
     text-align: left;
+    border-inline-width: thin;
+    border-bottom: solid black;
+  }
+  td.align-right {
+    padding: 10px;
+    text-align: right;
     border-inline-width: thin;
     border-bottom: solid black;
   }
@@ -211,6 +215,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   }
   .bottomTable{
     width: 100%;
+    border-collapse: collapse
   }
 
   .deleteButtonInTable{
