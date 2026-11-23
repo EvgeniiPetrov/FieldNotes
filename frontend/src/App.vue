@@ -127,11 +127,11 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   }
 
   .buttons{
-    margin-inline: 10px;
+    margin-inline: 0px;
   }
 
   input, textarea{
-    width: 100%;
+    box-sizing: border-box;
   }
 
   .validation-slot{
@@ -153,7 +153,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   }
   .bottom-button{
     display: flex;
-    width: 100%;
     justify-content: flex-end;
+    gap: 10px
   }
 </style>
