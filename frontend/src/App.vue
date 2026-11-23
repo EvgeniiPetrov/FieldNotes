@@ -47,8 +47,12 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
 <template>
   <div>
     <div class="headerRow">
-      <h1>{{ appTitle }}</h1>
-      <h2>{{ subTitle }}</h2>
+      <div>
+        <h1>{{ appTitle }}</h1>
+      </div>
+      <div>
+        <h2>{{ subTitle }}</h2>
+      </div>
     </div>
     <form class="mainForm" @submit.prevent>
         <label for="idNoteTitle">Наименование замечания:</label>
@@ -115,13 +119,12 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     display: flex;
     flex-direction: column;
     gap: 3px;
+    max-width: 420px;
   }
 
   .headerRow{
     display: flex;
-    align-items: baseline;
-    flex-direction: row;
-    gap: 12px;
+    flex-direction: column;
   }
 
   .buttons{
@@ -129,7 +132,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   }
 
   input, textarea{
-    width: 200px;
+    width: 350px;
   }
 
   .validation-slot{
