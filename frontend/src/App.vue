@@ -131,7 +131,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     display: flex;
     padding: 10px;
     flex-direction: column;
-    max-width: 420px;
+    max-width: 100%;
   }
 
   .headerRow{
