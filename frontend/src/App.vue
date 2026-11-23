@@ -142,7 +142,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   }
 
   .buttons{
-    margin-inline: 0px;
+    margin-inline: 0;
     border-radius: 5px;
   }
 
