@@ -48,14 +48,14 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   <div>
     <div class="headerRow">
       <div>
-        <h1>{{ appTitle }}</h1>
+        <h1 class="header-h1-style">{{ appTitle }}</h1>
       </div>
       <div>
-        <h2>{{ subTitle }}</h2>
+        <h2 class="header-h2-style">{{ subTitle }}</h2>
       </div>
     </div>
     <form class="mainForm" @submit.prevent>
-        <label for="idNoteTitle">Наименование замечания:</label>
+        <label for="idNoteTitle" class="input-labels">Наименование замечания:</label>
         <input
           id="idNoteTitle"
           v-model="noteTitle" type="text"
@@ -66,7 +66,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
         && isNoteTitleTouched">
           Название замечания не должно быть пустым или состоять только из пробелов.</p>
       </div>
-      <label for="idNoteDescription">Описание замечания: </label>
+      <label for="idNoteDescription" class="input-labels">Описание замечания: </label>
         <textarea
           id="idNoteDescription"
           v-model="noteDescription"
@@ -78,14 +78,14 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
           && isNoteDescriptionTouched">
             Описание не должно быть пустым или состоять только из пробелов. </p>
         </div>
-      <div >
+      <div class="bottom-button">
+        <button @click="clearInput()" class="buttons" type="button">Отменить</button>
         <button
           @click="addValueToNotes(noteTitle, noteDescription)"
           class="buttons"
           type="button"
         :disabled = "!isTitleValid || !isDescriptionValid">
           Добавить</button>
-        <button @click="clearInput()" class="buttons" type="button">Отменить</button>
       </div>
     </form>
   </div>
@@ -118,7 +118,6 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   .mainForm{
     display: flex;
     flex-direction: column;
-    gap: 3px;
     max-width: 420px;
   }
 
@@ -128,20 +127,33 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   }
 
   .buttons{
-    margin: 10px;
+    margin-inline: 10px;
   }
 
   input, textarea{
-    width: 350px;
+    width: 100%;
   }
 
   .validation-slot{
-    min-height: 1em;
+    min-height: 2em;
   }
   .validation-slot p{
     margin: 0;
     margin-block-end: 0;
     font-size: smaller;
   }
-
+  .header-h1-style{
+    margin-block-end: 0;
+  }
+  .header-h2-style{
+    margin-block-start: 0;
+  }
+  .input-labels{
+    margin-bottom: 0.5em;
+  }
+  .bottom-button{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+  }
 </style>
