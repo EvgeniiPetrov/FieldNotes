@@ -161,9 +161,27 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
 
   th{
     padding: 10px;
-    text-align: center;
     border-inline-width: thin;
     border-bottom: solid black;
+  }
+
+  th:nth-child(1){
+    width: 30%;
+    text-align: left;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  th:nth-child(2){
+    width: 50%;
+    text-align: left;
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  th:nth-child(3){
+    width: 20%;
+    text-align: right;
   }
 
   td.align-left {
@@ -215,12 +233,8 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   }
   .bottomTable{
     width: 100%;
+    table-layout: fixed;
     border-collapse: collapse
-  }
-
-  .deleteButtonInTable{
-    justify-content: right;
-    text-align: right;
   }
 
 </style>
