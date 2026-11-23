@@ -117,10 +117,11 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
 
 <style scoped>
   .mainWindow{
+    margin-inline: auto;
     max-width: 500px;
     display: flex;
     flex-direction: column;
-    font-family: SansSerif,serif;
+    font-family: Arial, sans-serif;
     background-color: aliceblue;
     border-radius: 20px;
     justify-content: center;
@@ -164,11 +165,11 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     font-size: smaller;
   }
   .header-h1-style{
-    font-family: SansSerif,serif;
+    font-family: Arial, sans-serif;
     margin-block-end: 0;
   }
   .header-h3-style{
-    font-family: SansSerif,serif;
+    font-family: Arial, sans-serif;
     margin-block-start: 0;
   }
   .input-labels{
