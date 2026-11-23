@@ -6,7 +6,7 @@ type Note = {
   noteTitle: string,
   noteDescription: string,
 }
-const appTitle = ref("FieldNotes:")
+const appTitle = ref("FieldNotes")
 const subTitle = ref("Журнал технических замечаний")
 const noteTitle = ref("")
 const noteDescription = ref("")
@@ -51,10 +51,9 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
         <h1 class="header-h1-style">{{ appTitle }}</h1>
       </div>
       <div>
-        <h2 class="header-h2-style">{{ subTitle }}</h2>
+        <h3 class="header-h3-style">{{ subTitle }}</h3>
       </div>
     </div>
-    <hr>
     <form class="mainForm" @submit.prevent>
         <label for="idNoteTitle" class="input-labels">Наименование замечания:</label>
         <input
@@ -123,13 +122,14 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     flex-direction: column;
     font-family: SansSerif,serif;
     background-color: aliceblue;
-    border-radius: 10px;
+    border-radius: 20px;
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
   }
 
   .mainForm{
     display: flex;
+    padding: 10px;
     flex-direction: column;
     max-width: 420px;
   }
@@ -137,10 +137,12 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   .headerRow{
     display: flex;
     flex-direction: column;
+    border-bottom: solid #000000;
   }
 
   .buttons{
     margin-inline: 0px;
+    border-radius: 5px;
   }
 
   input{
@@ -162,9 +164,11 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     font-size: smaller;
   }
   .header-h1-style{
+    font-family: SansSerif,serif;
     margin-block-end: 0;
   }
-  .header-h2-style{
+  .header-h3-style{
+    font-family: SansSerif,serif;
     margin-block-start: 0;
   }
   .input-labels{
@@ -175,4 +179,5 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     justify-content: flex-end;
     gap: 10px
   }
+
 </style>
