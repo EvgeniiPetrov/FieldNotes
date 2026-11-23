@@ -92,7 +92,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   </div>
 
   <br>
-  <div>
+  <div class="notesTable">
     <div>
       <table>
         <thead>
@@ -119,6 +119,18 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   .mainWindow{
     margin-inline: auto;
     max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: aliceblue;
+    border-radius: 20px;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .notesTable{
+    margin-inline: auto;
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
     font-family: Arial, sans-serif;
