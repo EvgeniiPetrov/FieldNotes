@@ -107,7 +107,8 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
           <td class="align-left">{{value.noteTitle}}</td>
           <td class="align-left">{{value.noteDescription}}</td>
           <td class="align-right">
-            <button @click = "removeNote(value.id)">Удалить замечание</button></td>
+            <button @click = "removeNote(value.id)"
+            class="minWidthRemoveNoteButton">Удалить замечание</button></td>
       </tr>
         </tbody>
       </table>
@@ -182,6 +183,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
 
   th:nth-child(3){
     width: 15%;
+    min-width: 106px;
     text-align: right;
   }
 
@@ -189,7 +191,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     vertical-align: top;
     border-bottom: 1px solid black;
     white-space: normal;
-    word-break: break-word;
+    overflow-wrap: anywhere;
   }
 
   td.align-left {
@@ -235,6 +237,9 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     display: flex;
     justify-content: flex-end;
     gap: 10px
+  }
+  .minWidthRemoveNoteButton{
+    min-width: 86px;
   }
 
 </style>
