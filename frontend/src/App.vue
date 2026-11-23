@@ -159,42 +159,47 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     border-radius: 5px;
   }
 
+  .bottomTable{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse
+  }
+
   th{
     padding: 10px;
-    border-inline-width: thin;
-    border-bottom: solid black;
+    border-bottom: 1px solid black;
   }
 
   th:nth-child(1){
     width: 30%;
     text-align: left;
-    white-space: normal;
-    word-break: break-word;
   }
 
   th:nth-child(2){
-    width: 50%;
+    width: 55%;
     text-align: left;
-    white-space: normal;
-    word-break: break-all;
   }
 
   th:nth-child(3){
-    width: 20%;
+    width: 15%;
     text-align: right;
+  }
+
+  td{
+    vertical-align: top;
+    border-bottom: 1px solid black;
+    white-space: normal;
+    word-break: break-word;
   }
 
   td.align-left {
     padding: 10px;
     text-align: left;
-    border-inline-width: thin;
-    border-bottom: solid black;
+
   }
   td.align-right {
     padding: 10px;
     text-align: right;
-    border-inline-width: thin;
-    border-bottom: solid black;
   }
 
   input{
@@ -230,11 +235,6 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     display: flex;
     justify-content: flex-end;
     gap: 10px
-  }
-  .bottomTable{
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse
   }
 
 </style>
