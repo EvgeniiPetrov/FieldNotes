@@ -92,9 +92,9 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   </div>
 
   <br>
-  <div class="notesTable">
+  <div class="notesDiv">
     <div>
-      <table>
+      <table class="bottomTable">
         <thead>
           <tr>
             <th>Заголовок</th>
@@ -106,7 +106,10 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
         <tr v-for="value in notes" :key="value.id">
           <td>{{value.noteTitle}}</td>
           <td>{{value.noteDescription}}</td>
-          <td><button @click = "removeNote(value.id)">Удалить замечание</button></td>
+          <td>
+            <button
+              @click = "removeNote(value.id)"
+              class="deleteButtonInTable">Удалить замечание</button></td>
       </tr>
         </tbody>
       </table>
@@ -128,7 +131,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     padding: 10px;
   }
 
-  .notesTable{
+  .notesDiv{
     margin-inline: auto;
     max-width: 1000px;
     display: flex;
@@ -156,6 +159,20 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   .buttons{
     margin-inline: 0;
     border-radius: 5px;
+  }
+
+  th{
+    padding: 10px;
+    text-align: center;
+    border-inline-width: thin;
+    border-bottom: solid black;
+  }
+
+  td {
+    padding: 10px;
+    text-align: left;
+    border-inline-width: thin;
+    border-bottom: solid black;
   }
 
   input{
@@ -191,6 +208,14 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     display: flex;
     justify-content: flex-end;
     gap: 10px
+  }
+  .bottomTable{
+    width: 100%;
+  }
+
+  .deleteButtonInTable{
+    justify-content: right;
+    text-align: right;
   }
 
 </style>
