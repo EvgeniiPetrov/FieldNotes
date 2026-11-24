@@ -104,9 +104,9 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
         </thead>
         <tbody>
         <tr v-for="value in notes" :key="value.id">
-          <td class="align-left">{{value.noteTitle}}</td>
-          <td class="align-left">{{value.noteDescription}}</td>
-          <td class="align-right">
+          <td>{{value.noteTitle}}</td>
+          <td>{{value.noteDescription}}</td>
+          <td>
             <button @click = "removeNote(value.id)">Удалить замечание</button></td>
       </tr>
         </tbody>
@@ -132,6 +132,8 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   .notesDiv{
     margin-inline: auto;
     max-width: 1000px;
+    min-width: 750px;
+    overflow-x: auto;
     display: flex;
     flex-direction: column;
     font-family: Arial, sans-serif;
@@ -161,6 +163,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
 
   .bottomTable{
     width: 100%;
+
     table-layout: fixed;
     border-collapse: collapse
   }
@@ -171,12 +174,12 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   }
 
   th:nth-child(1){
-    width: 30%;
+    width: 20%;
     text-align: left;
   }
 
   th:nth-child(2){
-    width: 55%;
+    width: 65%;
     text-align: left;
   }
 
@@ -190,6 +193,8 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     border-bottom: 1px solid black;
     white-space: normal;
     overflow-wrap: anywhere;
+    padding: 10px;
+    text-align: left;
   }
 
   td:nth-child(2){
@@ -197,6 +202,8 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     border-bottom: 1px solid black;
     white-space: normal;
     overflow-wrap: anywhere;
+    padding: 10px;
+    text-align: left;
   }
 
   td:nth-child(3){
@@ -204,6 +211,8 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     border-bottom: 1px solid black;
     white-space: normal;
     overflow-wrap: normal;
+    padding: 10px;
+    text-align: right;
   }
 
 
