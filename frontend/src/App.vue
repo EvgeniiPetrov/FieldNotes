@@ -93,7 +93,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
 
   <br>
   <div class="notesDiv">
-    <div>
+    <div class="tableScroll">
       <table class="bottomTable">
         <thead>
           <tr>
@@ -132,8 +132,6 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   .notesDiv{
     margin-inline: auto;
     max-width: 1000px;
-    min-width: 750px;
-    overflow-x: auto;
     display: flex;
     flex-direction: column;
     font-family: Arial, sans-serif;
@@ -141,6 +139,10 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
     border-radius: 20px;
     justify-content: center;
     padding: 10px;
+  }
+
+  .tableScroll{
+    overflow-x: auto;
   }
 
   .mainForm{
@@ -163,7 +165,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
 
   .bottomTable{
     width: 100%;
-
+    min-width: 750px;
     table-layout: fixed;
     border-collapse: collapse
   }
