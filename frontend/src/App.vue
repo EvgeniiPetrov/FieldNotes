@@ -80,9 +80,13 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
             Описание не должно быть пустым или состоять только из пробелов. </p>
         </div>
       <div class="bottom-button">
-        <button @click="clearInput()" class="buttons" type="button">Отменить</button>
+        <button @click="clearInput()"
+                data-testid="cancelButton"
+                class="buttons"
+                type="button">Отменить</button>
         <button
           @click="addValueToNotes(noteTitle, noteDescription)"
+          data-testid="addButton"
           class="buttons"
           type="button"
         :disabled = "!isTitleValid || !isDescriptionValid">
