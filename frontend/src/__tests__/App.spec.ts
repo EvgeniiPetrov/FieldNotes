@@ -6,12 +6,19 @@ import {mount} from "@vue/test-utils";
 const wrapper = mount(App)
 const btnAdd = wrapper.find('[data-testid = "addButton"]')
 const btnCancel = wrapper.find('[data-testid = "cancelButton"]')
+const NoteTitleInput = wrapper.find('[data-testid = "NoteTitleInput"]')
+const NoteDescriptionTextArea = wrapper.find('[data-testid = "NoteDescriptionTextArea"]')
 
 describe('FieldNotes — форма и список замечаний', () => {
   it('Не позволяет добавить замечание с пустыми полями', () => {
-    expect(btnAdd.attributes('disabled'))});
-  it('Разрешает добавление при заполненных полях', () => {
-
+    // expect(btnAdd.attributes('disabled'))
+    expect(btnAdd.element.getAttribute('disabled')).toBe('')
+  });
+  it('Разрешает добавление при заполненных полях', async () => {
+    await NoteTitleInput.setValue("test input")
+    await NoteDescriptionTextArea.setValue("Test TextArea")
+    // expect(btnAdd.attributes().disabled).toBeUndefined()
+    expect(btnAdd.attributes().disabled).toBeUndefined()
   })
   it.todo('Показывает добавленное замечание в таблице')
   it.todo('Удаляет выбранное замечание, сохраняя остальные')
