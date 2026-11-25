@@ -58,6 +58,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
         <label for="idNoteTitle" class="input-labels">Наименование замечания:</label>
         <input
           id="idNoteTitle"
+          data-testid="NoteTitleInput"
           v-model="noteTitle" type="text"
           @input = "isNoteTitleTouched = true"
           placeholder="Добавьте наименование замечания">
@@ -69,6 +70,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
       <label for="idNoteDescription" class="input-labels">Описание замечания: </label>
         <textarea
           id="idNoteDescription"
+          data-testid="NoteDescriptionTextArea"
           v-model="noteDescription"
           @input="isNoteDescriptionTouched=true"
 
