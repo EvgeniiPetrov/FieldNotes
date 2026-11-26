@@ -100,7 +100,7 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
   <br>
   <div class="notesDiv">
     <div class="tableScroll">
-      <table class="bottomTable">
+      <table data-testid="footerNotesTable" class="bottomTable">
         <thead>
           <tr>
             <th>Заголовок</th>
