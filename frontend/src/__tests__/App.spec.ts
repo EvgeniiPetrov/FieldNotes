@@ -2,6 +2,7 @@
 import {describe, expect, it} from 'vitest'
 import App from '../App.vue'
 import {mount} from "@vue/test-utils";
+import * as vm from "node:vm";
 
 // const wrapper = mount(App)
 // const btnAdd = wrapper.find('[data-testid = "addButton"]')
@@ -26,6 +27,25 @@ describe('FieldNotes — форма и список замечаний', () => {
     // expect(btnAdd.attributes().disabled).toBeUndefined()
     expect(btnAdd.attributes().disabled).toBeUndefined()
   })
-  it.todo('Показывает добавленное замечание в таблице')
+  it('Показывает добавленное замечание в таблице', async () => {
+    const wrapper = mount(App)
+
+    const btnAdd = wrapper.find('[data-testid = "addButton"]')
+    const noteTitleInput= wrapper.find<HTMLInputElement>('[data-testid = "NoteTitleInput"]')
+    const footerNotesTable = wrapper.find('[data-testid = "footerNotesTable"]')
+    const noteDescriptionTextArea = wrapper.find<HTMLTextAreaElement>('[data-testid = "NoteDescriptionTextArea"]')
+
+    await noteTitleInput.setValue("test input")
+    expect(noteTitleInput.element.value).toBe('test input')
+
+    await noteDescriptionTextArea.setValue("Test TextArea")
+    expect(noteDescriptionTextArea.element.value).toBe("Test TextArea")
+    await btnAdd.trigger('click')
+
+    const resultInTable: number =footerNotesTable.findAll('tbody tr').length
+
+    expect( resultInTable).toBe(1)
+
+  })
   it.todo('Удаляет выбранное замечание, сохраняя остальные')
 })
