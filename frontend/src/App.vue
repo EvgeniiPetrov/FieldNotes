@@ -113,7 +113,9 @@ function addValueToNotes(noteTitle: string, noteDescription: string) {
           <td>{{value.noteTitle}}</td>
           <td>{{value.noteDescription}}</td>
           <td>
-            <button @click = "removeNote(value.id)">Удалить замечание</button></td>
+            <button
+              data-testid = "deleteButton"
+              @click = "removeNote(value.id)">Удалить замечание</button></td>
       </tr>
         </tbody>
       </table>
